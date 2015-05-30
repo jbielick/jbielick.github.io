@@ -1,0 +1,12 @@
+{
+  "name": "josh3",
+  "version": "0.0.0",
+  "dependencies": {
+    "kona": "^0.9.0",
+    "superagent": "^1.2.0"
+  },
+  "scripts": {
+    "start": "./node_modules/.bin/kona server",
+    "console": "./node_modules/.bin/kona console"
+  }
+}
