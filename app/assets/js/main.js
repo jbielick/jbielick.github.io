@@ -51,9 +51,8 @@
           models.push(gram);
 
           if (models.length === 2) {
-            view = new GramView({models: models, index: i}).render();
-            models = [];
-            memo = memo.concat([view.el]);
+            view = new GramView({models: models.splice(0, 2), index: i}).render();
+            memo.push(view.el);
           }
 
           return memo;

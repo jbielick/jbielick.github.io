@@ -2,6 +2,7 @@
   "name": "josh3",
   "version": "0.0.0",
   "dependencies": {
+    "dotenv": "^1.1.0",
     "kona": "^0.9",
     "superagent": "^1.2.0"
   },
