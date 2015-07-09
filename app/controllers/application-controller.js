@@ -1,8 +1,5 @@
 var Controller = require('kona/lib/controller/request');
 
-console.log(Object.keys(require.cache).filter(function(pat) {
-  /application/.test(pat);
-}));
 var ApplicationController = Controller.extend({
 
   constructor: function() {
@@ -12,12 +9,11 @@ var ApplicationController = Controller.extend({
 
   linksForLayout: function* () {
     this.set('links', {
-      'GitHub': '//github.com/jbielick',
-      'LinkedIn': '//www.linkedin.com/in/joshbielick',
-      'Twitter': '//twitter.com/jbielick',
-      'CodePen': '//codepen.io/jbielick',
-      'Video': '//vimeo.com/jbielick',
-      'Photo': '//www.flickr.com/photos/jbielick'
+      'code': '//github.com/jbielick',
+      'networking': '//www.linkedin.com/in/joshbielick',
+      'audio': '//soundcloud.com/leo-tallstoy',
+      'motion': '//vimeo.com/jbielick',
+      'still': '//www.flickr.com/photos/jbielick'
     });
     this.set('now', new Date());
   }
