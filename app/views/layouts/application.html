@@ -30,21 +30,8 @@
 
   </head>
   <body>
-    <header id="header">
-      <img src="/images/mark.png" alt="Josh Bielick" class="mark">
-    </header>
     <div class="container">
-      <nav class="nav">
-        <div class="inner">
-          <ul>
-          {% for url in links %}
-            <li><a target="_blank" href="{{ url }}">{{ loop.key }}</a></li>
-          {% endfor %}
-          </ul>
-        </div>
-      </nav>
-      {% block content %}{% endblock %}
-    </div>
+    {% block content %}{% endblock %}
     <footer id="footer">
       <span class="copyright">
         <span class="big">&copy;</span> {{ now.getFullYear().toString() }} josh bielick. all rights reserved.

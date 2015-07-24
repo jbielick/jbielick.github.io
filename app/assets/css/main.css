@@ -75,16 +75,9 @@ p {line-height:1.6;padding:0.7em 0;font-size:1rem;}
 *   Layout
 *==============================================*/
 .container {width: 70%; min-width: 715px; max-width:967px; margin:30px auto;}
-.content {position:relative;z-index:10;border-top:1px solid rgb(80,80,80);
-        border-bottom:1px solid rgb(80,80,80);background-color:rgb(30,30,30);
-        margin-left: auto; margin-right: auto;
-        padding: 2em; margin-top: -2px;
-            -webkit-box-shadow: 0 0 22px rgba(0,0,0,0.6);
-               -moz-box-shadow: 0 0 22px rgba(0,0,0,0.6);
-                 -o-box-shadow: 0 0 22px rgba(0,0,0,0.6);
-                -ms-box-shadow: 0 0 22px rgba(0,0,0,0.6);
-                    box-shadow: 0 0 22px rgba(0,0,0,0.6);}
-
+.content {position: absolute; top: 25%; left: 10%;font-size: 50px;z-index: 100;width:400px;}
+.content span {background-color:rgba(30,30,30,0.4);}
+.content a {text-decoration:none;border-bottom: 1px solid rgb(180,180,180); color:rgb(180,180,180);}
     /**==============================================
     *   Grams
     *==============================================*/
@@ -233,8 +226,8 @@ hr.dark {border-color:rgb(12,64,66);}
 .bar {height:1.428em;width:100%;}
 .bump {margin-top:-3.95em}
 
-#footer {padding: 60px 0;color:rgb(255,255,255,0.2);height:300px;}
-    .copyright {float:right;margin-top:5%;margin-right:10%;z-index:6;position:relative;font-size:10px;text-transform:uppercase;
+#footer {color:rgb(255,255,255,0.2);height:350px;position:absolute;bottom: 0;right:10%;}
+    .copyright {z-index:6;position:relative;font-size:10px;text-transform:uppercase;
                     -webkit-text-shadow: -1px -1px 3px rgba(0,0,0,0.4);
                        -moz-text-shadow: -1px -1px 3px rgba(0,0,0,0.4);
                          -o-text-shadow: -1px -1px 3px rgba(0,0,0,0.4);
