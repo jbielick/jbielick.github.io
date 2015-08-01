@@ -20,17 +20,11 @@ var instagram = {
         .end(function(err, resp) {
           if (err) return reject(err);
 
-          if (resp.body.pagination) {
-            results = results.concat(resp.body.data);
+          results = results.concat(resp.body.data);
 
-            if (results.length >= count) {
-              return resolve(results);
-            }
+          if (!resp.body.pagination || results.length >= count) return resolve(results);
 
-            return fetchAllPages(resp.body.pagination.next_url, resolve, reject);
-          }
-
-          return resolve(results);
+          return fetchAllPages(resp.body.pagination.next_url, resolve, reject);
         });
     }
 
