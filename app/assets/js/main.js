@@ -1,65 +1,54 @@
-(function($, Backbone, _) {
+!(function(document) {
 
-  var ANIMATION = Modernizr.prefixed('animation');
-  var ANIMATION_DURATION = Modernizr.prefixed('animationDuration');
+var ANIMATION = Modernizr.prefixed('animation');
+var ANIMATION_DURATION = Modernizr.prefixed('animationDuration');
+var ANIMATION_DELAY = Modernizr.prefixed('animationDelay');
 
-  var GramView = Backbone.View.extend({
+function createGramSquare(gram) {
+  var link = document.createElement('a');
+  var img = document.createElement('img');
 
-    initialize: function(options) {
-      _.extend(this, options);
-    },
+  link.href = gram.link;
+  link.target = '_blank';
 
-    className: 'gram',
+  link.appendChild(img);
 
-    template: _.template($('#gramTemplate').html(), null, {variable: 'gram'}),
+  return link;
+}
 
-    render: function() {
-      var _this = this;
-      var html = '';
+function displayGrams(grams) {
 
-      this.models.forEach(function(model) {
-        html += this.template(model.toJSON());
-      }, this);
+  var fragment = document.createDocumentFragment();
 
-      this.el.innerHTML = html;
+  grams.forEach(function(gram, i) {
 
-      // fade image in on load
-      this.$('img').on('load', function() {
-        var animString = 'fade ' + ((_this.index + 1) * 0.2) + 's ease-in-out';
-        $(this).css(ANIMATION, animString).css({opacity: '1'});
-      });
+    var container = document.createElement('div');
+    container.className = 'gram';
 
-      this.$('a').first().get(0).style[ANIMATION_DURATION] = (Math.floor(Math.random() * (50 - 20)) + 20) + 's';
-      return this;
-    }
+    var link = createGramSquare(gram);
+    var img = link.querySelector('img');
+
+    container.appendChild(link);
+    img.style[ANIMATION] = 'fade ' + ((i + 1) * 0.2) + 's ease-in-out';
+    link.style[ANIMATION_DURATION] = (Math.floor(Math.random() * (30 - 14)) + 14) + 's';
+    link.style[ANIMATION_DELAY] = (Math.floor(Math.random() * (6 - 2)) + 2) + 's';
+
+    img.src = gram.images.standard_resolution.url;
+
+    fragment.appendChild(container);
+
   });
 
-  var Grams = Backbone.Collection.extend({url: '/grams'});
+  document.getElementById('grams').appendChild(fragment);
+}
 
-  $(document).ready(function(){
+var request = new XMLHttpRequest();
+request.open('GET', '/grams', true);
+request.addEventListener('readystatechange', function() {
+  if (this.readyState !== 4 || this.status !== 200 || !this.responseText) return;
+  displayGrams(JSON.parse(this.responseText));
+});
+request.setRequestHeader('Accept', 'application/json');
+request.send();
 
-    var grams = new Grams();
-    var $gramEl = $('#grams');
-
-    grams
-      .on('reset', function(coll) {
-        var models = [];
-
-        $gramEl.append(coll.inject(function(memo, gram, i) {
-          var view;
-
-          models.push(gram);
-
-          if (models.length === 2) {
-            view = new GramView({models: models.splice(0, 2), index: i}).render();
-            memo.push(view.el);
-          }
-
-          return memo;
-
-        }, []));
-      })
-      .fetch({reset: true});
-  });
-
-})(window.jQuery, window.Backbone, window._);
+})(document);

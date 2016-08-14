@@ -54,7 +54,6 @@ input:focus,
 textarea:focus,
 select:focus {}
 
-.input label {}
 html {width:100%;height:100%;}
 body {
     -webkit-font-smoothing: antialiased;
@@ -66,6 +65,7 @@ body {
     background-color:#222;
     height:100%;
     width:100%;
+    overflow: hidden;
 }
 
 a {text-decoration: none;}
@@ -74,169 +74,111 @@ p {line-height:1.6;padding:0.7em 0;font-size:1rem;}
 /**==============================================
 *   Layout
 *==============================================*/
-.container {width: 70%; min-width: 715px; max-width:967px; margin:30px auto;}
-.content {position: absolute; top: 25%; left: 10%;font-size: 50px;z-index: 100;width:400px;}
-.content span {background-color:rgba(30,30,30,0.4);}
-.content a {text-decoration:none;border-bottom: 1px solid rgb(180,180,180); color:rgb(180,180,180);}
-    /**==============================================
-    *   Grams
-    *==============================================*/
-    #header {position:relative;z-index:5;text-align:center;}
-        .mark {position:absolute;top:5%;left:14%;z-index:6;width:19%;min-width:200px;}
-    #grams, #vimeos {
-        position:fixed;top:0;left:0;width:100%;z-index:3;
-        -webkit-filter: blur(32px) grayscale(0);
-           -moz-filter: blur(32px) grayscale(0);
-             -o-filter: blur(32px) grayscale(0);
-            -ms-filter: blur(32px) grayscale(0);
-                filter: blur(32px) grayscale(0);
-        -webkit-transition: filter 3s ease-in-out;
-           -moz-transition: filter 3s ease-in-out;
-             -o-transition: filter 3s ease-in-out;
-            -ms-transition: filter 3s ease-in-out;
-                transition: filter 3s ease-in-out;
-    }
-    #vimeos {bottom:12px;top:auto;}
-    #grams:after, #vimeos:after {content:'';display:block;clear:both;height:0;}
-    .gram {position:relative;float:left;width:20%;padding-bottom:20%;}
-    .vimeo {position:relative;float:left;width:20%;padding-bottom:11.4%;}
-    .gram:nth-child(3n+2), .gram:nth-child(3n+3) {width:10%;padding-bottom:10%;}
-    .gram:nth-child(11n-1), .gram:nth-child(14n-1) {margin-top:-10%;}
-    .gram a, .vimeo a {position:absolute;top:0;left:0;z-index:1;
-            -webkit-animation-iteration-count: infinite;
-               -moz-animation-iteration-count: infinite;
-                 -o-animation-iteration-count: infinite;
-                -ms-animation-iteration-count: infinite;
-                    animation-iteration-count: infinite;
-            -webkit-animation-timing-function: ease-in-out;
-               -moz-animation-timing-function: ease-in-out;
-                 -o-animation-timing-function: ease-in-out;
-                -ms-animation-timing-function: ease-in-out;
-                    animation-timing-function: ease-in-out;
-            }
-    .gram a:first-child, .vimeo a:first-child {z-index:2;
-        -webkit-animation-name: cycle;
-           -moz-animation-name: cycle;
-             -o-animation-name: cycle;
-            -ms-animation-name: cycle;
-                animation-name: cycle;
-    }
-    .gram img, .vimeo img {max-width:100%;width:100%;height:auto;-webkit-animation: cycle 3s linear;}
-    .gram .caption, .vimeo .title {position:absolute;opacity:0;bottom:0;width:100%;left:0;pointer-events:none;background:rgba(0,0,0,0.6);color:white;padding:12px 7px;
-                    font-size:14px;
-                    -webkit-transition: opacity 0.3s ease-in-out;
-                       -moz-transition: opacity 0.3s ease-in-out;
-                         -o-transition: opacity 0.3s ease-in-out;
-                        -ms-transition: opacity 0.3s ease-in-out;
-                            transition: opacity 0.3s ease-in-out;}
-    .gram:hover .caption, .vimeo:hover .title {opacity:1;pointer-events:auto;}
+.container {
+    width: 70%;
+    min-width: 715px;
+    max-width:967px;
+    margin:30px auto;
+}
+.content {
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    font-size: 50px;z-index: 100;width:400px;}
+.content span {
+    background-color:rgba(30,30,30,0.4);
+}
+.content a {
+    text-decoration:none;border-bottom: 1px solid rgb(180,180,180); color:rgb(180,180,180);
+}
 /**==============================================
-*   nav
+*   Grams
 *==============================================*/
-.nav {padding:10px;color:white;z-index:10;text-align:center;margin:20% auto 0;position:relative;display:inline-block;
-        width:100%; background-color:rgba(0,0,0,0.4);border:1px solid rgba(0,0,0,0.16);padding-bottom:0;border-bottom:none;
-            -webkit-border-top-right-radius: 20px;
-               -moz-border-top-right-radius: 20px;
-                 -o-border-top-right-radius: 20px;
-                -ms-border-top-right-radius: 20px;
-                    border-top-right-radius: 20px;
-            -webkit-border-top-left-radius: 20px;
-               -moz-border-top-left-radius: 20px;
-                 -o-border-top-left-radius: 20px;
-                -ms-border-top-left-radius: 20px;
-                    border-top-left-radius: 20px;
-                }
-    .nav .inner {width:100%;padding:0; background:rgba(255,255,255,0.4);color:black;border:1px solid rgba(255,255,255,0.3);border-bottom:none;
-        -webkit-border-top-right-radius: 15px;
-           -moz-border-top-right-radius: 15px;
-             -o-border-top-right-radius: 15px;
-            -ms-border-top-right-radius: 15px;
-                border-top-right-radius: 15px;
-        -webkit-border-top-left-radius: 15px;
-           -moz-border-top-left-radius: 15px;
-             -o-border-top-left-radius: 15px;
-            -ms-border-top-left-radius: 15px;
-                border-top-left-radius: 15px;
-        -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.8);
-           -moz-box-shadow: 0 0 20px rgba(0,0,0,0.8);
-             -o-box-shadow: 0 0 20px rgba(0,0,0,0.8);
-            -ms-box-shadow: 0 0 20px rgba(0,0,0,0.8);
-                box-shadow: 0 0 20px rgba(0,0,0,0.8);
-    }
-    .nav ul {overflow:hidden;clear:both;display:table;width:100%;border-spacing:0;cell-padding:0;}
-    .nav a {color:rgb(30,30,30);
-            -webkit-transition: color .06s ease-in-out;
-               -moz-transition: color .06s ease-in-out;
-                 -o-transition: color .06s ease-in-out;
-                -ms-transition: color .06s ease-in-out;
-                    transition: color .06s ease-in-out;}
-    .nav a:hover {text-decoration:none;}
-    .nav li {display:table-cell;padding:1em 2.5em;color:rgb(30,30,30);cursor:pointer;
-        -webkit-transition: background-color .06s ease-in-out;
-           -moz-transition: background-color .06s ease-in-out;
-             -o-transition: background-color .06s ease-in-out;
-            -ms-transition: background-color .06s ease-in-out;
-                transition: background-color .06s ease-in-out;
-            }
-    .nav ul li:first-child {
-        -webkit-border-top-left-radius: 15px;
-           -moz-border-top-left-radius: 15px;
-             -o-border-top-left-radius: 15px;
-            -ms-border-top-left-radius: 15px;
-                border-top-left-radius: 15px;
-    }
-    .nav ul li:last-child {
-            -webkit-border-top-right-radius: 15px;
-               -moz-border-top-right-radius: 15px;
-                 -o-border-top-right-radius: 15px;
-                -ms-border-top-right-radius: 15px;
-                    border-top-right-radius: 15px;
-    }
-    .nav ul li:hover {background-color:rgba(0,0,0,0.3);text-decoration:none;color:rgb(170,170,170);
-                    -webkit-box-shadow: inset 0 2px 6px rgba(0,0,0,0.2);
-                       -moz-box-shadow: inset 0 2px 6px rgba(0,0,0,0.2);
-                         -o-box-shadow: inset 0 2px 6px rgba(0,0,0,0.2);
-                        -ms-box-shadow: inset 0 2px 6px rgba(0,0,0,0.2);
-                            box-shadow: inset 0 2px 6px rgba(0,0,0,0.2);}
-    .nav li:hover a {color:rgb(200,200,200);}
-    .welcome {/*font-size:100px;*/padding:0.2em 0.5em;display:block;width:50%;float:left;text-align:left;
-                -webkit-border-top-right-radius: 15px;
-                   -moz-border-top-right-radius: 15px;
-                     -o-border-top-right-radius: 15px;
-                    -ms-border-top-right-radius: 15px;
-                        border-top-right-radius: 15px;}
-    #avatar {float:left;width:50%;height:0;padding-bottom:40%;background-repeat:no-repeat;background-size:cover;background-position:center center;
-            overflow:hidden;opacity:0.8;border-right:1px solid rgb(30,30,30);border-bottom:1px solid rgb(30,30,30);
-            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.4);
-               -moz-box-shadow: inset 0 0 6px rgba(0,0,0,0.4);
-                 -o-box-shadow: inset 0 0 6px rgba(0,0,0,0.4);
-                -ms-box-shadow: inset 0 0 6px rgba(0,0,0,0.4);
-                    box-shadow: inset 0 0 6px rgba(0,0,0,0.4);
-            -webkit-border-top-left-radius: 15px;
-               -moz-border-top-left-radius: 15px;
-                 -o-border-top-left-radius: 15px;
-                -ms-border-top-left-radius: 15px;
-                    border-top-left-radius: 15px;}
-.teal {background-color:rgb(62,192,197);color:white;}
+#grams {
+    width: 100%;
+    height: 100%;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    z-index:3;
+    -webkit-filter: blur(42px);
+       -moz-filter: blur(42px);
+         -o-filter: blur(42px);
+        -ms-filter: blur(42px);
+            filter: blur(42px);
+}
+.gram {
+    float:left;
+    width:33.33%;
+}
+.gram:nth-child(3n+2), .gram:nth-child(3n+3) {
+    width:16.66%;
+}
+.gram:nth-child(9n-2) {
+    margin-top:-16.66%;
+}
+.gram:nth-child(10n) {
+    clear:left;
+}
+.gram a {
+    z-index:1;
+    -webkit-animation-iteration-count: infinite;
+       -moz-animation-iteration-count: infinite;
+         -o-animation-iteration-count: infinite;
+        -ms-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+       -moz-animation-timing-function: ease-in-out;
+         -o-animation-timing-function: ease-in-out;
+        -ms-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+}
+.gram a:first-child {
+    z-index:2;
+    -webkit-animation-name: cycle;
+       -moz-animation-name: cycle;
+         -o-animation-name: cycle;
+        -ms-animation-name: cycle;
+            animation-name: cycle;
+}
+.gram img {
+    max-width:100%;
+    border-radius: 100%;
+    width:100%;
+    height:auto;
+    -webkit-animation: cycle 3s linear;
+}
+.gram .caption {
+    position:absolute;opacity:0;bottom:0;width:100%;left:0;pointer-events:none;background:rgba(0,0,0,0.6);color:white;padding:12px 7px;
+    font-size:14px;
+    -webkit-transition: opacity 0.3s ease-in-out;
+       -moz-transition: opacity 0.3s ease-in-out;
+         -o-transition: opacity 0.3s ease-in-out;
+        -ms-transition: opacity 0.3s ease-in-out;
+            transition: opacity 0.3s ease-in-out;
+}
+.gram:hover .caption {
+    opacity:1;
+    pointer-events:auto;
+}
 
-hr {height:1px;border-bottom-width:1px;border-bottom-style:solid;margin:30px 0;border-top:none;}
-hr.teal {border-color:rgb(62,192,197);}
-hr.dark {border-color:rgb(12,64,66);}
-
-.bar {height:1.428em;width:100%;}
-.bump {margin-top:-3.95em}
-
-#footer {color:rgb(255,255,255,0.2);height:350px;position:absolute;bottom: 0;right:10%;}
-    .copyright {z-index:6;position:relative;font-size:10px;text-transform:uppercase;
-                    -webkit-text-shadow: -1px -1px 3px rgba(0,0,0,0.4);
-                       -moz-text-shadow: -1px -1px 3px rgba(0,0,0,0.4);
-                         -o-text-shadow: -1px -1px 3px rgba(0,0,0,0.4);
-                        -ms-text-shadow: -1px -1px 3px rgba(0,0,0,0.4);
-                            text-shadow: -1px -1px 3px rgba(0,0,0,0.4);}
-    #footer hr {border-color:rgb(255,255,255);}
-    #footer a {color:white;}
-    #footer li {margin-bottom:0.7em;}
-    #footer .links {margin-top:60px;}
+#footer {
+    color:rgb(255,255,255,0.2);
+    height:350px;
+    position:absolute;
+    bottom: 0;right:10%;
+}
+.copyright {
+    z-index:6;
+    position:relative;
+    font-size:10px;
+    text-transform:uppercase;
+    -webkit-text-shadow: -1px -1px 3px rgba(0,0,0,0.4);
+       -moz-text-shadow: -1px -1px 3px rgba(0,0,0,0.4);
+         -o-text-shadow: -1px -1px 3px rgba(0,0,0,0.4);
+        -ms-text-shadow: -1px -1px 3px rgba(0,0,0,0.4);
+                text-shadow: -1px -1px 3px rgba(0,0,0,0.4);
+}
 
 
 
