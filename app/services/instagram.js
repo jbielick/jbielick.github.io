@@ -22,7 +22,9 @@ var instagram = {
 
           results = results.concat(resp.body.data);
 
-          if (!resp.body.pagination || results.length >= count) return resolve(results);
+          if (!resp.body.pagination.next_url || results.length >= count) {
+            return resolve(results);
+          }
 
           return fetchAllPages(resp.body.pagination.next_url, resolve, reject);
         });
