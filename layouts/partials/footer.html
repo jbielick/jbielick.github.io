@@ -1,0 +1,24 @@
+
+        <!-- Footer -->
+          <footer id="footer">
+            <p class="copyright">
+              &copy; {{ .Site.Params.copyright }}.
+              Original design by: <a href="https://html5up.net">HTML5 UP</a>.
+              Powered by <a href="https://www.gohugo.io/">Hugo.</a>
+            </p>
+          </footer>
+
+      </div>
+    <!-- BG -->
+      <video id="bg" autoplay loop preload poster="/media/poster.jpg">
+        <source src="/media/bgv.webm" type="video/webm; codecs=vp8,vorbis">
+        <source src="/media/bgv.mp4" type="video/mp4">
+      </video>
+    <!-- Scripts -->
+      <script src="/js/skel.min.js"></script>
+      <script src="/js/util.js"></script>
+      <script src="/js/main.js"></script>
+      {{ template "_internal/google_analytics_async.html" . }}
+
+  </body>
+</html>
