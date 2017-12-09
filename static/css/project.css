@@ -1,0 +1,16 @@
+.logo img {
+  padding: 0 !important;
+  border-radius: 100%;
+}
+
+#bg {
+  width: auto;
+  opacity: 0.3;
+}
+
+@media (max-width: 767px) {
+  video {
+    display: none !important;
+    visibility: hidden !important;
+  }
+}
