@@ -24,7 +24,28 @@
       $footer = $('#footer'),
       $languages = $('#languages'),
       $main = $('#main'),
-      $main_articles = $main.children('article');
+      $main_articles = $main.children('article'),
+      $playPause = $('#play'),
+      $bg = $('#bg'),
+      $video = $('#video'),
+      played = false;
+
+    $playPause.on('click', function() {
+      var $this = $(this);
+
+      if (!played) {
+        $bg.addClass('faded');
+        played = true;
+      }
+
+      if (!$this.hasClass('playing')) {
+        $video.get(0).play();
+      } else {
+        $video.get(0).pause();
+      }
+
+      $this.toggleClass('playing');
+    });
 
     // Disable animations/transitions until the page has loaded.
       $body.addClass('is-loading');

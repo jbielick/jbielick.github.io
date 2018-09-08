@@ -115,22 +115,27 @@
             
           </div>
 
-        
           <footer id="footer">
             <p class="copyright">
               &copy; 2018 Josh Bielick.
               Original design by: <a href="https://html5up.net">HTML5 UP</a>.
               Powered by <a href="https://www.gohugo.io/">Hugo.</a>
             </p>
+            <br />
+            <button id="play"></button>
           </footer>
 
       </div>
-    
-      <video id="bg" autoplay loop preload poster="/media/poster.jpg">
-        <source src="/media/bgv.webm" type="video/webm; codecs=vp8,vorbis">
+
+      <video id="video" preload="metadata" playsinline loop>
         <source src="/media/bgv.mp4" type="video/mp4">
+        <source src="/media/bgv.webm" type="video/webm; codecs=vp8,vorbis">
       </video>
-    
+
+      <div id="tint"></div>
+
+      <div id="bg"></div>
+
       <script src="/js/skel.min.js"></script>
       <script src="/js/util.js"></script>
       <script src="/js/main.js"></script>
