@@ -9,14 +9,12 @@ disableKinds:
   - RSS
 params:
   description: >
-    Ever-curious software developer, creator, and collaborator
+    Ever-curious creator and collaborator. Software, team, and systems developer.
     <br>
-    primarily writing in JavaScript, Ruby, Go, bash, and SQL.
-    <br>
-    CTO at <a href="https://www.adwerx.com" target="_blank">Adwerx</a>,
+    VP, Infrastructure at <a href="https://www.adwerx.com" target="_blank">Adwerx</a>,
     Durhamite
   logoimage: "/images/headshot.jpg"
-  copyright: "2018 Josh Bielick"
+  copyright: "2020 Josh Bielick"
   social:
     - medium: twitter
       icon: twitter
