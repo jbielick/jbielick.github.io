@@ -1,10 +1,14 @@
 #!/bin/sh
 
+set -euo pipefail
+
+DIRTY_OK="${DIRTY_OK:-}"
+
 DIR=$(dirname "$0")
 
 cd $DIR/..
 
-if [[ $(git status -s) ]]
+if [[ $(git status -s) ]] && [ "$DIRTY_OK" != "y" ]
 then
     echo "The working directory is dirty. Please commit any pending changes."
     exit 1;
