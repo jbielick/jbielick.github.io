@@ -31,6 +31,8 @@ rm -rf public/*
 echo "Generating site"
 hugo
 
+echo 'joshbielick.com' > public/CNAME
+
 echo "Updating and pushing master branch"
 cd public && git add --all && git commit -m "Publishing to master (publish.sh)" && git push origin
 
