@@ -11,14 +11,17 @@ params:
   description: >
     Ever-curious creator and collaborator. Software, team, and systems developer.
     <br>
-    VP, Infrastructure at <a href="https://www.adwerx.com" target="_blank">Adwerx</a>,
-    Durhamite
+    Senior Security Platform Systems Engineer at <a href="https://www.cloudflare.com/" target="_blank">Cloudflare</a>,
+    Durham, NC
   logoimage: "/images/headshot.jpg"
-  copyright: "2020 Josh Bielick"
+  copyright: "2024 Josh Bielick"
   social:
     - medium: twitter
       icon: twitter
       link: https://twitter.com/jbielick
+    - medium: stackoverflow
+      icon: stack-overflow
+      link: https://stackoverflow.com/users/3543371/jbielick
     - medium: vimeo
       icon: vimeo
       link: https://vimeo.com/jbielick
